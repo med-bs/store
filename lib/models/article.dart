@@ -1,11 +1,11 @@
 class Article {
-  final String id;
-  final String intitule;
-  final String designation;
-  final String unite;
-  final double prix;
-  final String categorie;
-  final String date;
+  String id;
+  String intitule;
+  String designation;
+  String unite;
+  double prix;
+  String categorie;
+  String date;
 
   Article(
       {required this.id,
@@ -39,26 +39,16 @@ class Article {
         date: article["date"]);
   }
 
-
   static List<Article> fromJsonList(List<Map<String, dynamic>> articles) {
     List<Article> lArticles = [];
     for (var article in articles) {
       // sauter s'il ya une erreur dans un certain article
       try {
-        lArticles.add(Article(
-            id: article["id"],
-            intitule: article["intitulé"],
-            designation: article["désignation"],
-            unite: article["unité"],
-            prix: double.parse(article["prix"]),
-            categorie: article["catégorie"],
-            date: article["date"]));
+        lArticles.add(fromJson(article));
       } catch (e) {
         continue;
       }
     }
     return lArticles;
   }
-
 }
-

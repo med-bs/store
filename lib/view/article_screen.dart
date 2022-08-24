@@ -6,14 +6,14 @@ import 'package:store/utils/app_layout.dart';
 import 'package:store/widgets/appbar_widget.dart';
 import 'package:store/widgets/title_widget.dart';
 
-class ObjectView extends StatefulWidget {
-  const ObjectView({Key? key}) : super(key: key);
+class ArticleView extends StatefulWidget {
+  const ArticleView({Key? key}) : super(key: key);
 
   @override
-  State<ObjectView> createState() => _ObjectViewState();
+  State<ArticleView> createState() => _ArticleViewState();
 }
 
-class _ObjectViewState extends State<ObjectView> {
+class _ArticleViewState extends State<ArticleView> {
   @override
   void initState() {
     // TODO: implement initState

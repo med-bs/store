@@ -1,3 +1,4 @@
-class QrScanAction{
-  static const searchArticle ="searchArticle";
+class QrScanAction {
+  static const article ="article";
+  static const facture ="facture";
 }

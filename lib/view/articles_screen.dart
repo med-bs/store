@@ -20,7 +20,7 @@ class _AllArticlesViewState extends State<AllArticlesView> {
   int? sortColumnIndex;
   late bool isAscending;
 
-  void onTap({required String id, required String type}){
+  void onTap({required String id, required String type}) {
     print("$type  $id");
   }
 
@@ -32,8 +32,9 @@ class _AllArticlesViewState extends State<AllArticlesView> {
         articlesResult.sort((article1, article2) =>
             compareString(ascending, article1.intitule, article2.intitule));
       } else {
-        articlesResult.sort((article1, article2) => compareString(
-            ascending, article1.prix.toString(), article2.prix.toString()));
+        articlesResult.sort((article1, article2) => ascending
+            ? article1.prix.compareTo(article2.prix)
+            : article2.prix.compareTo(article1.prix));
       }
     });
   }
@@ -54,6 +55,10 @@ class _AllArticlesViewState extends State<AllArticlesView> {
     });
   }
 
+  void onLangPress(Object arg) {
+    Navigator.pushNamed(context, AppRoutes.article, arguments: arg);
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -66,10 +71,14 @@ class _AllArticlesViewState extends State<AllArticlesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: ()=>Navigator.pushNamed(context, AppRoutes.addArticle),
+        onPressed: () => Navigator.pushNamed(context, AppRoutes.addArticle),
         tooltip: 'Add article',
         backgroundColor: AppColors.bgColor,
-        child: const Icon(Icons.add,color: AppColors.mainTextColor,),),
+        child: const Icon(
+          Icons.add,
+          color: AppColors.mainTextColor,
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.symmetric(
             horizontal: AppLayout.getWidth(5),
@@ -114,7 +123,7 @@ class _AllArticlesViewState extends State<AllArticlesView> {
                                   DataCell(Text(object.categorie)),
                                   DataCell(Text(object.prix.toString())),
                                 ],
-                                onLongPress: () => Navigator.pushNamed(context,AppRoutes.object,arguments: object),
+                                onLongPress: () => onLangPress(object),
                               ),
                             )
                             .toList(),

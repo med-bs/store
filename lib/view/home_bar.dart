@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:store/utils/app_colors.dart';
 import 'package:store/view/articles_screen.dart';
+import 'package:store/view/factures_screen.dart';
+import 'package:store/view/livraisons_screen.dart';
 import 'package:store/widgets/appbar_widget.dart';
 
 class HomeBar extends StatefulWidget {
@@ -18,8 +20,8 @@ class _HomeBarState extends State<HomeBar> {
 
   final List<Widget> _widgetoptions = <Widget>[
   const AllArticlesView(),
-  const Text("Facture"),
-  const Text("Facture1"),
+  const AllFacturesView(),
+  const AllBonLivraisonView(),
   const Text("Facture2"),
   ];
 
@@ -45,7 +47,7 @@ class _HomeBarState extends State<HomeBar> {
         body: Center(
           child: _widgetoptions[_selectedIndex],
         ),
-        appBar:appBarHome(null),
+        appBar:appBarHome(context),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: AppColors.bgColor,
           currentIndex: _selectedIndex,

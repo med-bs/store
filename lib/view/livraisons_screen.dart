@@ -6,14 +6,14 @@ import 'package:store/utils/app_layout.dart';
 import 'package:store/widgets/search_widget.dart';
 import 'package:store/widgets/title_widget.dart';
 
-class AllFacturesView extends StatefulWidget {
-  const AllFacturesView({Key? key}) : super(key: key);
+class AllBonLivraisonView extends StatefulWidget {
+  const AllBonLivraisonView({Key? key}) : super(key: key);
 
   @override
-  State<AllFacturesView> createState() => _AllFacturesViewState();
+  State<AllBonLivraisonView> createState() => _AllBonLivraisonViewState();
 }
 
-class _AllFacturesViewState extends State<AllFacturesView> {
+class _AllBonLivraisonViewState extends State<AllBonLivraisonView> {
   late List<Facture> factures = Facture.fromJsonList(facturesList);
   late List<Facture> facturesResult;
 
@@ -28,7 +28,7 @@ class _AllFacturesViewState extends State<AllFacturesView> {
         facturesResult.sort((facture1, facture2) => compareString(
             ascending, facture1.date, facture2.date));
       } else if (columnIndex == 2){
-         facturesResult.sort((facture1, facture2) => compareString(
+        facturesResult.sort((facture1, facture2) => compareString(
             ascending, facture1.to.societe, facture2.to.societe));
       }
     });
@@ -45,13 +45,13 @@ class _AllFacturesViewState extends State<AllFacturesView> {
     setState(() {
       facturesResult = factures
           .where((facture) =>
-              facture.to.societe.toLowerCase().contains(query.toLowerCase()))
+          facture.to.societe.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
   }
 
   void onLangPress(Object arg) {
-    Navigator.pushNamed(context, AppRoutes.facture, arguments: arg);
+    Navigator.pushNamed(context, AppRoutes.livraison, arguments: arg);
   }
 
   @override
@@ -71,8 +71,8 @@ class _AllFacturesViewState extends State<AllFacturesView> {
             vertical: AppLayout.getHeight(5)),
         child: Column(
           children: [
-            const TitleWidget(title: "Facture"),
-            SearchInputWidget(onChange: updateList, qrCodeAction: "Facture",qr: false,),
+            const TitleWidget(title: "Bon De Livraison"),
+            SearchInputWidget(onChange: updateList, qrCodeAction: "Livraison",qr: false,),
             Expanded(
               child: ListView(
                 children: [
@@ -84,7 +84,7 @@ class _AllFacturesViewState extends State<AllFacturesView> {
                         sortColumnIndex: sortColumnIndex,
                         columns: [
                           const DataColumn(
-                              label: Text("N° Facture",
+                              label: Text("N° Livraison",
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold))),
@@ -104,27 +104,27 @@ class _AllFacturesViewState extends State<AllFacturesView> {
                         rows: facturesResult
                             .map(
                               (object) => DataRow(
-                                cells: [
-                                  DataCell(Center(
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            cells: [
+                              DataCell(Center(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(object.num),
                                       object.isVerified
                                           ? const Icon(
-                                              Icons.verified_outlined,
-                                              color: Colors.green,
-                                            )
+                                        Icons.verified_outlined,
+                                        color: Colors.green,
+                                      )
                                           : const Icon(Icons.not_interested,
-                                              color: Colors.red),
+                                          color: Colors.red),
                                     ],
                                   ))),
-                                  DataCell(Text(object.date)),
-                                  DataCell(Text(object.to.societe)),
-                                ],
-                                onLongPress: () => onLangPress(object),
-                              ),
-                            )
+                              DataCell(Text(object.date)),
+                              DataCell(Text(object.to.societe)),
+                            ],
+                            onLongPress: () => onLangPress(object),
+                          ),
+                        )
                             .toList(),
                       ),
                     ),

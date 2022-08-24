@@ -1,0 +1,107 @@
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:store/routes/route.dart';
+import 'package:store/utils/app_colors.dart';
+import 'package:store/utils/app_layout.dart';
+import 'package:store/widgets/appbar_widget.dart';
+import 'package:store/widgets/button_widget.dart';
+import 'package:store/widgets/input_widget.dart';
+
+class ProfileView extends StatefulWidget {
+  const ProfileView({Key? key}) : super(key: key);
+
+  @override
+  State<ProfileView> createState() => _ProfileViewState();
+}
+
+class _ProfileViewState extends State<ProfileView> {
+  String _name = "";
+  String _email = "";
+  String _password = "";
+  String _comPassword = "";
+
+  void name(String value) {
+    _name = value;
+  }
+
+  void email(String value) {
+    _email = value;
+  }
+
+  void password(String value) {
+    _password = value;
+  }
+
+  void comPassword(String value) {
+    _comPassword = value;
+  }
+
+  void editprofile(context) {
+    print("--------");
+    print(
+        "name: $_name\n_email::  $_email !!!!\n paass :: $_password !! \n confirme = ${_password == _comPassword}");
+    print("--------");
+    Navigator.pushNamed(context, AppRoutes.home);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = AppLayout.getSize(context);
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        backgroundColor: AppColors.bgColor,
+        appBar: appBarBack(context),
+        body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(40)),
+            height: size.height - AppLayout.getHeight(50),
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: const <Widget>[
+                    Text(
+                      "Votre Profile",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: <Widget>[
+                    InputWidget(label: "Full name", onChange: name),
+                    InputWidget(label: "Email", onChange: email),
+                    InputWidget(
+                        label: "Password",
+                        onChange: password,
+                        isPassword: true),
+                    InputWidget(
+                        label: "Confirm Password ",
+                        onChange: comPassword,
+                        isPassword: true),
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.only(top: 3, left: 3),
+                  child: ButtonWidget(
+                    text: "Edit",
+                    textColor: AppColors.secondaryTextColor,
+                    bgColor: AppColors.secondaryColor,
+                    onPressed: () => editprofile(context),
+                  ),
+                ),
+
+                Gap(AppLayout.getHeight(10)),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

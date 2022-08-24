@@ -5,7 +5,8 @@ import 'package:store/utils/app_layout.dart';
 class SearchInputWidget extends StatefulWidget {
   final Function onChange;
   final String qrCodeAction;
-  const SearchInputWidget({Key? key, required this.onChange, required this.qrCodeAction}) : super(key: key);
+  final bool qr;
+  const SearchInputWidget({Key? key, required this.onChange, required this.qrCodeAction, this.qr=true}) : super(key: key);
 
   @override
   State<SearchInputWidget> createState() => _SearchInputWidgetState();
@@ -40,7 +41,7 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
           ),
           hintText: "Recherche par nom",
           prefixIcon: const Icon(Icons.search),
-          suffixIcon: GestureDetector(
+          suffixIcon:widget.qr ? GestureDetector(
             onTap: (){
               Navigator.pushNamed(context, AppRoutes.scanObject, arguments: qrCodeAction);
             },
@@ -49,7 +50,7 @@ class _SearchInputWidgetState extends State<SearchInputWidget> {
               //color: AppColors.secondaryColor,
               size: AppLayout.getWidth(50),
             ),
-          ),
+          ):null,
           /*prefixIconColor: AppColors.secondaryColor*/),
       ),
     );

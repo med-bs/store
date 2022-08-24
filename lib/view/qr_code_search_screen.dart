@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:store/models/article.dart';
 import 'package:store/routes/route.dart';
+import 'package:store/utils/app-qrscan_action.dart';
 import 'package:store/utils/app_info_list.dart';
 import 'package:store/utils/app_layout.dart';
 
@@ -56,11 +57,11 @@ class _QrcodeScanState extends State<QrcodeScan> {
     Article? article;
     String type = "article";
     setState(() {
-      if (type == "article") {
+      if (type == QrScanAction.article) {
         article = findArticleById(id);
         if (article != null) {
           result = id;
-          Navigator.pushNamed(context, AppRoutes.object, arguments: article);
+          Navigator.pushNamed(context, AppRoutes.article, arguments: article);
         } else {
           result = "$type not found\n$id";
         }
