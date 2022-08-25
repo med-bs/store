@@ -3,47 +3,7 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:store/routes/route.dart';
 import 'package:store/utils/app_colors.dart';
 import 'package:store/utils/app_layout.dart';
-import 'package:store/widgets/appbar_widget.dart';
 import 'package:store/widgets/home_icon_widget.dart';
-
-class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    void navigation(int arg){
-      Navigator.pushNamed(context, AppRoutes.homeBar,arguments: arg);
-    }
-    return Scaffold(
-      appBar:appBarHome(null),
-      body: SafeArea(
-        child: Container(
-          color: AppColors.bgColor,
-          padding: EdgeInsets.symmetric(vertical: AppLayout.getHeight(50), horizontal: AppLayout.getWidth(50)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                 HomeIcon(icon: Icons.article, text: "Factures",onTap:()=>navigation(1),),
-                  HomeIcon(icon: Icons.archive_outlined, text: "Articles",onTap: ()=>navigation(0)),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  HomeIcon(icon: Icons.article_outlined, text: "Bon de livreson",onTap: ()=>navigation(2)),
-                  HomeIcon(icon: Icons.warehouse_outlined, text: "Entrepôt",onTap: ()=>navigation(3)),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -58,20 +18,21 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return ZoomDrawer(
-      menuScreen: DrawerScreen(setIndex: (index) {
-        setState(() {
-          currentIndex = index;
-        });
-      },),
-      mainScreen: HomeScreen(),
+      menuScreen: DrawerScreen(
+        setIndex: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+      ),
+      mainScreen: const HomeScreen(),
       borderRadius: 30,
       showShadow: true,
       angle: 0.0,
       slideWidth: 200,
-      menuBackgroundColor: Colors.deepPurple,
+      menuBackgroundColor:  AppColors.secondaryColor,
     );
   }
-
 }
 
 class HomeScreen extends StatefulWidget {
@@ -85,35 +46,61 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    void navigation(int arg){
-      Navigator.pushNamed(context, AppRoutes.homeBar,arguments: arg);
+    void navigation(int arg) {
+      Navigator.pushNamed(context, AppRoutes.homeBar, arguments: arg);
     }
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: const TextStyle(color: AppColors.mainTextColor),
+        ),
         centerTitle: true,
-        leading: DrawerWidget(),
+        backgroundColor: AppColors.bgColor,
+        leading: const DrawerWidget(),
+        actions: [
+          Container(
+            margin: EdgeInsets.only(right: AppLayout.getWidth(10)),
+            child: const Icon(Icons.logout, color: AppColors.secondaryColor),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Container(
           color: AppColors.bgColor,
-          padding: EdgeInsets.symmetric(vertical: AppLayout.getHeight(50), horizontal: AppLayout.getWidth(50)),
+          padding: EdgeInsets.symmetric(
+              vertical: AppLayout.getHeight(50),
+              horizontal: AppLayout.getWidth(50)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  HomeIcon(icon: Icons.article, text: "Factures",onTap:()=>navigation(1),),
-                  HomeIcon(icon: Icons.archive_outlined, text: "Articles",onTap: ()=>navigation(0)),
+                  HomeIcon(
+                    icon: Icons.article,
+                    text: "Factures",
+                    onTap: () => navigation(1),
+                  ),
+                  HomeIcon(
+                      icon: Icons.archive_outlined,
+                      text: "Articles",
+                      onTap: () => navigation(0)),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  HomeIcon(icon: Icons.article_outlined, text: "Bon de livreson",onTap: ()=>navigation(2)),
-                  HomeIcon(icon: Icons.warehouse_outlined, text: "Entrepôt",onTap: ()=>navigation(3)),
+                  HomeIcon(
+                      icon: Icons.article_outlined,
+                      text: "Bon de livreson",
+                      onTap: () => navigation(2)),
+                  HomeIcon(
+                      icon: Icons.warehouse_outlined,
+                      text: "Entrepôt",
+                      onTap: () => navigation(3)),
                 ],
               ),
             ],
@@ -136,7 +123,8 @@ class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor:  AppColors.secondaryColor,
+      //backgroundColor: Colors.deepPurple,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,36 +141,39 @@ class _DrawerScreenState extends State<DrawerScreen> {
     return GestureDetector(
       onTap: () {
         widget.setIndex(index);
-        switch(index){
-          case 0:{
-            Navigator.pushNamed(context, AppRoutes.home);
-            break;
-          }
-          case 1:{
-            Navigator.pushNamed(context, AppRoutes.profile);
-            break;
-          }
-          case 2:{
-            print("deconextion");
-            break;
-          }
+        switch (index) {
+          case 0:
+            {
+              Navigator.pushNamed(context, AppRoutes.home);
+              break;
+            }
+          case 1:
+            {
+              Navigator.pushNamed(context, AppRoutes.profile);
+              break;
+            }
+          case 2:
+            {
+              print("deconextion");
+              break;
+            }
         }
       },
       child: Container(
-        margin: EdgeInsets.only(left: 20, bottom: 12),
+        margin: const EdgeInsets.only(left: 20, bottom: 12),
         child: Row(
           children: [
             Icon(
               icon,
               color: Colors.white,
             ),
-            SizedBox(width: 12,),
+            const SizedBox(
+              width: 12,
+            ),
             Text(
               text,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
-              ),
+              style:
+                  const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -200,10 +191,10 @@ class DrawerWidget extends StatelessWidget {
       onPressed: () {
         ZoomDrawer.of(context)!.toggle();
       },
-      icon: Icon(Icons.menu),
+      icon: const Icon(
+        Icons.settings,
+        color: AppColors.secondaryColor,
+      ),
     );
   }
 }
-
-
-

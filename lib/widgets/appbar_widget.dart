@@ -17,7 +17,7 @@ AppBar appBarHome(BuildContext? context) => AppBar(
             )
           : IconButton(
               onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(context, AppRoutes.home, (route) => false);
+                Navigator.pop(context);
               },
               icon: Icon(
                 Icons.arrow_back_ios,

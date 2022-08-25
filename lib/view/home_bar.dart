@@ -41,6 +41,7 @@ class _HomeBarState extends State<HomeBar> {
       argumentgeted=true;
       _selectedIndex=indexArg!;
     }
+    print("arg  $indexArg !!!! select $_selectedIndex  selected $argumentgeted");
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(

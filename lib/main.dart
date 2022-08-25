@@ -22,7 +22,7 @@ void main() {
         AppRoutes.login:(context) => const LoginPage(),
         AppRoutes.signup:(context) => const SignupPage(),
         AppRoutes.home: (context) => const Home(),
-        AppRoutes.homeBar: (context) => const HomeBar(),
+        AppRoutes.homeBar: (context) => HomeBar(),
         AppRoutes.article: (context) => const ArticleView(),
         AppRoutes.facture: (context) => const FactureView(),
         AppRoutes.livraison:(context)=>const BonLivraisonView(),

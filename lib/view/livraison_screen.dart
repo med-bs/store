@@ -6,7 +6,7 @@ import 'package:store/models/facture.dart';
 import 'package:store/routes/route.dart';
 import 'package:store/utils/app_colors.dart';
 import 'package:store/utils/app_layout.dart';
-import 'package:store/widgets/factureWidget.dart';
+import 'package:store/widgets/livraison_widget.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 
 import '../controllers/pdf_livraison_api.dart';
@@ -36,7 +36,7 @@ class _BonLivraisonViewState extends State<BonLivraisonView> {
         centerTitle: true,
         backgroundColor: AppColors.bgColor,
         title: Text(facture.isVerified == true ? 'Livraison deja signer':'Signier le bon de livraison',
-          style: TextStyle(color: AppColors.mainTextColor),
+          style: const TextStyle(color: AppColors.mainTextColor),
         ),
         leading: IconButton(
           onPressed: () {
@@ -80,7 +80,7 @@ class _BonLivraisonViewState extends State<BonLivraisonView> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Expanded(child: FactureWdget(facture: facture)),
+          Expanded(child: LivraisonWidget(facture: facture)),
         ],
       ),
       bottomNavigationBar: facture.isVerified == true ?

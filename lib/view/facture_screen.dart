@@ -7,7 +7,7 @@ import 'package:store/models/facture.dart';
 import 'package:store/routes/route.dart';
 import 'package:store/utils/app_colors.dart';
 import 'package:store/utils/app_layout.dart';
-import 'package:store/widgets/factureWidget.dart';
+import 'package:store/widgets/facture_widget.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 
 class FactureView extends StatefulWidget {

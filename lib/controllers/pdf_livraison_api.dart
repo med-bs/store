@@ -75,8 +75,7 @@ class PdfApi {
     final String invoiceNumber = '''
     Invoice Number: ${facture.num}
     Date: ${format.format(DateTime.parse(facture.date))}
-    Agent: ${facture.from.agent}
-    Vehicule: ${facture.from.vehicule}''';
+    Agent: ${facture.from.agent}''';
 
     final Size contentSize = contentFont.measureString(invoiceNumber);
     // ignore: leading_newlines_in_multiline_strings
