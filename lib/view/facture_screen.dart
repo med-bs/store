@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:open_file/open_file.dart';
 import 'package:store/controllers/pdf_facture_api.dart';
 import 'package:store/models/facture.dart';
@@ -60,6 +61,15 @@ class _FactureViewState extends State<FactureView> {
         ),
         body: Column(
           children: [
+            Gap(AppLayout.getHeight(10)),
+            Text(
+              'Total: \$ ${facture.totals}\nDate: ${facture.date}',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Expanded(child: FactureWdget(facture: facture)),
+            const Divider(),
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -72,14 +82,6 @@ class _FactureViewState extends State<FactureView> {
                 key: keySignaturePad,
               ),
             ),
-            const Divider(),
-            Text(
-              'Total: \$ ${facture.totals}\nDate: ${facture.date}',
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Expanded(child: FactureWdget(facture: facture)),
           ],
         ),
         bottomNavigationBar: facture.isVerified == true ?

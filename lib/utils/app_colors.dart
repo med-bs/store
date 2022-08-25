@@ -7,4 +7,5 @@ class AppColors {
   static const secondaryColor2  = Color(0x9D252633);
   static const mainTextColor = Color(0xFF2e3253);
   static const secondaryTextColor = Color(0xFFedf0f8);
+  static const animationColor= Color(0xFF50626E);
 }

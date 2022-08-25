@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
       showShadow: true,
       angle: 0.0,
       slideWidth: 200,
-      menuBackgroundColor:  AppColors.secondaryColor,
+      menuBackgroundColor:  AppColors.animationColor,
     );
   }
 }
@@ -52,10 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          widget.title,
-          style: const TextStyle(color: AppColors.mainTextColor),
+      appBar:
+
+
+      AppBar(
+        title: const Text(
+          "Welcome",
+          style: TextStyle(color: AppColors.mainTextColor),
         ),
         centerTitle: true,
         backgroundColor: AppColors.bgColor,
@@ -123,8 +126,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:  AppColors.secondaryColor,
-      //backgroundColor: Colors.deepPurple,
+      backgroundColor:  AppColors.animationColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,

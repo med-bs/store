@@ -393,3 +393,190 @@ List<Map<String, dynamic>> facturesList = [
     "num": 21
   }
 ];
+
+List<Map<String, dynamic>> invontairesList = [
+  {
+    "agent":"mohamed",
+    "articles": [
+      {
+        "intitule": "Practical Cotton Gloves",
+        "quantite": 64,
+        "prix": 29.51,
+        "id": "ae1a6f17-9f9d-4992-8f3b-b7226cf1d092",
+        "emplacement":"A7",
+        "depot":"monastir",
+        "isverified": false
+      },
+      {
+        "intitule": "Generic Rubber Computer",
+        "quantite": 22,
+        "prix": 80.46,
+        "id": "7a8c5e5d-2506-4256-a424-a9972035849c",
+        "emplacement":"A7",
+        "depot":"sousse",
+        "isverified": false
+      },
+      {
+        "intitule": "Gorgeous Granite Car",
+        "quantite": 16,
+        "prix": 42.92,
+        "id": "7a8c5e5d-2506-4256-a424-a9972035849c",
+        "emplacement":"A5",
+        "depot":"sousse",
+        "isverified": true
+      }
+    ],
+    "date": "2022-06-03",
+    "isverified": false,
+    "num": 7
+  },
+  {
+    "agent":"Ahmed",
+    "articles": [
+      {
+        "intitule": "Refined Wooden Sausages",
+        "quantite": 1,
+        "prix": 23.48,
+        "id": "ae1a6f17-9f9d-4992-8f3b-b7226cf1d092",
+        "emplacement":"M7",
+        "depot":"Sfax",
+        "isverified": false
+      },
+      {
+        "intitule": "Licensed Fresh Chips",
+        "quantite": 72,
+        "prix": 90.64,
+        "id": "7a8c5e5d-2506-4256-a424-a9972035849c",
+        "emplacement":"A7",
+        "isverified": false,
+        "depot":"sousse"
+      },
+      {
+        "intitule": "Awesome Soft Fish",
+        "quantite": 1,
+        "prix": 45.18,
+        "id": "e037438f-b08f-4e01-b481-6f07ffdb87b8",
+        "emplacement":"D7",
+        "isverified": false,
+        "depot":"sousse"
+      },
+      {
+        "intitule": "Handcrafted Metal Fish",
+        "quantite": 25,
+        "prix": 71.78,
+        "id": "e037438f-b08f-4e01-b481-6f07ffdb87b8",
+        "emplacement":"A7",
+        "isverified": true,
+        "depot":"sousse"
+      },
+      {
+        "intitule": "Rustic Steel Car",
+        "quantite": 40,
+        "prix": 67.54,
+        "id": "e037438f-b08f-4e01-b481-6f07ffdb87b8",
+        "emplacement":"S2",
+        "isverified": true,
+        "depot":"sousse"
+      }
+    ],
+    "date": "2019-12-29",
+    "isverified": false,
+    "num": 12
+  },
+  {
+    "agent":"imen",
+    "articles": [
+      {
+        "intitule": "Refined Granite Soap",
+        "quantite": 44,
+        "prix": 17.29,
+        "id": "7a8c5e5d-2506-4256-a424-a9972035849c",
+        "emplacement":"E7",
+        "isverified": true,
+        "depot":"sousse"
+      }
+    ],
+    "date": "2020-06-01",
+    "isverified": true,
+    "num": 15
+  },
+  {
+    "agent":"mohamed",
+    "articles": [
+      {
+        "intitule": "Handcrafted Rubber Soap",
+        "quantite": 22,
+        "prix": 88.42,
+        "id": "e037438f-b08f-4e01-b481-6f07ffdb87b8",
+        "emplacement":"A7",
+        "isverified": true,
+        "depot":"sousse"
+      },
+      {
+        "intitule": "Intelligent Wooden Chair",
+        "quantite": 1,
+        "prix": 34.19,
+        "id": "e037438f-b08f-4e01-b481-6f07ffdb87b8",
+        "emplacement":"A7",
+        "isverified": true,
+        "depot":"Tunis"
+      },
+      {
+        "intitule": "Small Fresh Hat",
+        "quantite": 41,
+        "prix": 49.22,
+        "id": "e037438f-b08f-4e01-b481-6f07ffdb87b8",
+        "emplacement":"A7",
+        "isverified": true,
+        "depot":"sousse"
+      }
+    ],
+    "date": "2022-06-30",
+    "isverified": true,
+    "num": 16
+  },
+  {
+    "agent":"houssem",
+    "articles": [
+      {
+        "intitule": "Intelligent Cotton Chicken",
+        "quantite": 38,
+        "prix": 41.32,
+        "id": "ae1a6f17-9f9d-4992-8f3b-b7226cf1d092",
+        "emplacement":"A7",
+        "isverified": true,
+        "depot":"sousse"
+      },
+      {
+        "intitule": "Fantastic Metal Sausages",
+        "quantite": 42,
+        "prix": 32.17,
+        "id": "ae1a6f17-9f9d-4992-8f3b-b7226cf1d092",
+        "emplacement":"V7",
+        "isverified": true,
+        "depot":"sousse"
+      },
+      {
+        "intitule": "Refined Granite Car",
+        "quantite": 38,
+        "prix": 96.38,
+        "id": "7a8c5e5d-2506-4256-a424-a9972035849c",
+        "emplacement":"D2",
+        "isverified": false,
+        "depot":"sousse"
+      },
+      {
+        "intitule": "Refined Metal Chair",
+        "quantite": 77,
+        "prix": 85.85,
+        "id": "ae1a6f17-9f9d-4992-8f3b-b7226cf1d092",
+        "emplacement":"A7",
+        "isverified": false,
+        "depot":"sousse"
+      }
+    ],
+    "date": "2021-06-30",
+    "isverified": false,
+    "num": 21
+  }
+];

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:open_file/open_file.dart';
 import 'package:store/models/facture.dart';
 import 'package:store/routes/route.dart';
@@ -61,6 +62,15 @@ class _BonLivraisonViewState extends State<BonLivraisonView> {
       ),
       body: Column(
         children: [
+          Gap(AppLayout.getHeight(10)),
+          Text(
+            'Total: \$ ${facture.totals}\nDate: ${facture.date}',
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Expanded(child: LivraisonWidget(facture: facture)),
+          const Divider(),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -73,14 +83,6 @@ class _BonLivraisonViewState extends State<BonLivraisonView> {
               key: keySignaturePad,
             ),
           ),
-          const Divider(),
-          Text(
-            'Total: \$ ${facture.totals}\nDate: ${facture.date}',
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Expanded(child: LivraisonWidget(facture: facture)),
         ],
       ),
       bottomNavigationBar: facture.isVerified == true ?
